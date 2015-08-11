@@ -1,4 +1,4 @@
-package fremont.sandbox.wow;
+package fremont.sandbox.wow.wsclient.obj;
 
 public class ItemJsonObject{
 	public String name;

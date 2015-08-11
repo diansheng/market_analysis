@@ -5,8 +5,8 @@ import java.sql.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import fremont.sandbox.wow.AHJsonObject;
-import fremont.sandbox.wow.AuctionItem;
+import fremont.sandbox.wow.wsclient.obj.AHJsonObject;
+import fremont.sandbox.wow.wsclient.obj.AuctionItem;
 
 public class AuctionDao {
 	private static final Logger logger=LogManager.getLogger(AuctionDao.class);
@@ -17,8 +17,8 @@ public class AuctionDao {
 	static final String DB_URL = "jdbc:mysql://localhost:3306";
 
 	// Database credentials
-	static final String USER = "fremont";
-	static final String PASS = "300991";
+	public static String DB_USER = "fremont";
+	public static String DB_PASS = "300991";
 
 	private static Connection conn = null;
 
@@ -32,7 +32,7 @@ public class AuctionDao {
 				Class.forName("com.mysql.jdbc.Driver");
 				// STEP 3: Open a connection
 				System.out.println("Connecting to database...");
-				conn = DriverManager.getConnection(DB_URL, USER, PASS);
+				conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 				conn.setAutoCommit(false);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
@@ -77,7 +77,7 @@ public class AuctionDao {
 		String sql = "insert into fremont_db.auctionhall (auc, item, bid, buyout, timeStamp) values (?, ?, ?, ?, ?)";
 		preStmt = conn.prepareStatement(sql);
 		logger.info("SQL statment: "+sql);
-		logger.info("Number of entries=)"+ahObj.getItemList().size());
+		logger.info("Number of entries="+ahObj.getItemList().size());
 		for(AuctionItem item:ahObj.getItemList()){
 			insertAuctionItem(preStmt, item, ahObj.retrivedTime);
 		}

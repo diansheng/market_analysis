@@ -1,4 +1,4 @@
-package fremont.sandbox.wow.test;
+package fremont.sandbox.wow.wsclient.obj.test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -18,8 +18,8 @@ import org.junit.Test;
 import com.google.gson.Gson;
 
 import fremont.sandbox.util.AuctionDao;
-import fremont.sandbox.wow.AHJsonObject;
-import fremont.sandbox.wow.AuctionItem;
+import fremont.sandbox.wow.wsclient.obj.AHJsonObject;
+import fremont.sandbox.wow.wsclient.obj.AuctionItem;
 
 public class AuctionTest {
 	private static final Logger logger=LogManager.getLogger(AuctionTest.class);
@@ -30,7 +30,6 @@ public class AuctionTest {
 	@Before
 	public void init(){
 		startTime = System.currentTimeMillis();
-
 		dao=AuctionDao.getInstance();
 	}
 	

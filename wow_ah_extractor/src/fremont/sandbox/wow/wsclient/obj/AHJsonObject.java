@@ -1,4 +1,4 @@
-package fremont.sandbox.wow;
+package fremont.sandbox.wow.wsclient.obj;
 
 import java.util.Date;
 import java.util.List;

@@ -1,4 +1,4 @@
-package fremont.sandbox.ws.client;
+package fremont.sandbox.wow.wsclient;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -9,10 +9,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import fremont.sandbox.wow.ItemJsonObject;
-import fremont.sandbox.ws.client.Constants.Host;
-
-
+import fremont.sandbox.wow.wsclient.Constants.Host;
+import fremont.sandbox.wow.wsclient.obj.ItemJsonObject;
 
 public class ItemDataRetriever extends DataRetriever{
 	

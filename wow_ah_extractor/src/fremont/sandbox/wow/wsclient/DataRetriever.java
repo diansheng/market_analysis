@@ -1,4 +1,4 @@
-package fremont.sandbox.ws.client;
+package fremont.sandbox.wow.wsclient;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,7 +11,14 @@ import java.net.URL;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import fremont.sandbox.wow.wsclient.Constants.Host;
+import fremont.sandbox.wow.wsclient.Constants.Realm;
+
 public class DataRetriever {
+	Host region;
+	Realm realm;
+	String apiKey;
+	
 	private static final Logger logger=LogManager.getLogger(DataRetriever.class);
 	
 	public String request(String req_url) throws IOException {
@@ -59,4 +66,21 @@ public class DataRetriever {
 		}
 	}
 
+	public DataRetriever(){
+		region=Host.Taiwan;
+		realm=Realm.SilverwingHold;
+		apiKey=Constants.WOW_API_KEY;
+	}
+	
+	public DataRetriever(Host region, Realm realm, String apiKey){
+		/* arguments default value setting */
+	    if (region==null) region=Host.Taiwan;
+	    else this.region=region;
+	    
+	    if (realm==null) realm=Realm.SilverwingHold;
+	    else this.realm=realm;
+	    
+	    if (apiKey==null||apiKey=="") apiKey=Constants.WOW_API_KEY;
+	    else this.apiKey=apiKey;	    
+	}
 }
