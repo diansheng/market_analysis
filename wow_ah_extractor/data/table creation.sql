@@ -3,6 +3,7 @@ CREATE TABLE `auctionhall` (
   `item` int(10) unsigned NOT NULL,
   `bid` bigint(15) unsigned DEFAULT NULL,
   `buyout` bigint(15) unsigned NOT NULL,
+  `quantity` bigint(15) DEFAULT NULL,
   `timeStamp` timestamp NULL DEFAULT NULL,
   KEY `idx_auctionhall_auc` (`auc`),
   KEY `idx_auctionhall_item` (`item`)
